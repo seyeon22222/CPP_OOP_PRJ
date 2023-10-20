@@ -26,7 +26,7 @@ int main(void)
     while (1)
     {
     	view();
-        std::cout << "¼±ÅÃ :";
+        std::cout << "ì„ íƒ :";
         std::cin >> num;
         
         if (num == 1)
@@ -40,7 +40,7 @@ int main(void)
         else if (num == 5)
         	return 0;
         else
-        	std::cout << "Àß¸øµÈ ÀÔ·ÂÀÔ´Ï´Ù. ´Ù½Ã ½ÃµµÇØÁÖ¼¼¿ä." << std::endl;
+        	std::cout << "ìž˜ëª»ëœ ìž…ë ¥ìž…ë‹ˆë‹¤. ë‹¤ì‹œ ì‹œë„í•´ì£¼ì„¸ìš”." << std::endl;
     }
     return 0;
 }
@@ -48,11 +48,11 @@ int main(void)
 void view(void)
 {
 	std::cout <<"---------Menu---------"<< std::endl;
-    std::cout <<"1. °èÁÂ°³¼³" << std::endl;
-    std::cout <<"2. ÀÔ±Ý"<< std::endl;
-    std::cout <<"3. Ãâ±Ý"<< std::endl;
-    std::cout <<"4. °èÁÂÁ¤º¸ ÀüÃ¼ Ãâ·Â"<< std::endl;
-    std::cout <<"5. ÇÁ·Î±×·¥ Á¾·á"<< std::endl;
+    std::cout <<"1. ê³„ì¢Œê°œì„¤"<< std::endl;
+    std::cout <<"2. ìž…ê¸ˆ"<< std::endl;
+    std::cout <<"3. ì¶œê¸ˆ"<< std::endl;
+    std::cout <<"4. ê³„ì¢Œì •ë³´ ì „ì²´ ì¶œë ¥"<< std::endl;
+    std::cout <<"5. í”„ë¡œê·¸ëž¨ ì¢…ë£Œ"<< std::endl;
 }
 
 void make(void)
@@ -61,10 +61,10 @@ void make(void)
     char name[NAME_LEN];
     int balance;
    
-	std::cout <<"[°èÁÂ°³¼³]"<< std::endl;
-    std::cout << "°èÁÂID :"; std::cin >> id;
-    std::cout << "ÀÌ ¸§ :"; std::cin >> name;
-    std::cout << "ÀÔ±Ý¾× :"; std::cin >> balance;
+	std::cout <<"[ê³„ì¢Œê°œì„¤]"<< std::endl;
+    std::cout << "ê³„ì¢ŒID :"; std::cin >> id;
+    std::cout << "ì´ ë¦„ :"; std::cin >> name;
+    std::cout << "ìž…ê¸ˆì•¡ :"; std::cin >> balance;
 	std::cout << std::endl;
     
 	acc[acc_num].ID = id;
@@ -78,10 +78,10 @@ void deposit(void)
 	int money;
     int id;
     
-    std::cout << "[ÀÔ ±Ý]" << std::endl;
-    std::cout << "°èÁÂID :";
+    std::cout << "[ìž… ê¸ˆ]" << std::endl;
+    std::cout << "ê³„ì¢ŒID :";
     std::cin >> id;
-    std::cout << "ÀÔ±Ý¾× :";
+    std::cout << "ìž…ê¸ˆì•¡ :";
     std::cin >> money;
     
     for (int i = 0; i < acc_num; i++)
@@ -89,11 +89,11 @@ void deposit(void)
     	if (acc[i].ID == id)
         {
         	acc[i].balance += money;
-            std::cout << "ÀÔ ±Ý ¿Ï ·á" << std::endl;
+            std::cout << "ìž… ê¸ˆ ì™„ ë£Œ" << std::endl;
             return;
         }
     }
-    std::cout << "Àß¸øµÈ IDÀÔ´Ï´Ù." << std::endl;
+    std::cout << "ìž˜ëª»ëœ IDìž…ë‹ˆë‹¤." << std::endl;
 }
 
 void withdraw(void)
@@ -101,10 +101,10 @@ void withdraw(void)
 	int money;
     int	id;
     
-    std::cout << "[Ãâ ±Ý]" << std::endl;
-    std::cout << "°èÁÂID :";
+    std::cout << "[ì¶œ ê¸ˆ]" << std::endl;
+    std::cout << "ê³„ì¢ŒID :";
     std::cin >> id;
-    std::cout << "Ãâ±Ý¾× :";
+    std::cout << "ì¶œê¸ˆì•¡ :";
     std::cin >> money;
     
     for (int i = 0; i < acc_num; i++)
@@ -112,22 +112,22 @@ void withdraw(void)
     	if (acc[i].ID == id)
         {
         	acc[i].balance -= money;
-            std::cout << "Ãâ ±Ý ¿Ï ·á" << std::endl;
+            std::cout << "ì¶œ ê¸ˆ ì™„ ë£Œ" << std::endl;
             return;
         }
     }
-    std::cout << "Àß¸øµÈ IDÀÔ´Ï´Ù." << std::endl;
+    std::cout << "ìž˜ëª»ëœ IDìž…ë‹ˆë‹¤." << std::endl;
 }
 
 void show(void)
 {
 	std::cout << "------------" << std::endl;
-	std::cout << "[ÀüÃ¼ °èÁÂ Ãâ·Â]" << std::endl;
+	std::cout << "[ì „ì²´ ê³„ì¢Œ ì¶œë ¥]" << std::endl;
 	std::cout << "------------" << std::endl;
 	for (int i = 0; i < acc_num; i++)
     {
-    	std::cout << "°èÁÂ ID :" << acc[i].ID << std::endl;
-        std::cout << "ÀÌ¸§ :" << acc[i].name << std::endl;
-        std::cout << "ÀÜ¾× :" << acc[i].balance << std::endl;
+    	std::cout << "ê³„ì¢Œ ID :" << acc[i].ID << std::endl;
+        std::cout << "ì´ë¦„ :" << acc[i].name << std::endl;
+        std::cout << "ìž”ì•¡ :" << acc[i].balance << std::endl;
     }
 }
